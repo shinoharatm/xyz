@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_13_083451) do
+ActiveRecord::Schema.define(version: 2020_01_13_085412) do
 
   create_table "bulletin_boards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2020_01_13_083451) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "identification_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "address", null: false
+    t.bigint "bulletin_board_id", null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bulletin_board_id"], name: "index_identification_informations_on_bulletin_board_id"
   end
 
   create_table "thread_mains", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
