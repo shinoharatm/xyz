@@ -1,0 +1,2 @@
+class ThreadMain < ApplicationRecord
+end
